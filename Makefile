@@ -37,7 +37,7 @@ define Package/v2ray-geosite
   LICENSE:=GPL-3.0
 endef
 
-GEOIP_URL:=https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip-only-cn-private.dat
+GEOIP_URL:=https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 GEOSITE_URL:=https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 
 define Build/Compile
