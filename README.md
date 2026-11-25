@@ -30,7 +30,7 @@ git clone https://github.com/NetForgeCN/Loyalsoldier.git package/v2ray-geodata
 
 若构建树里已有官方 `openwrt/packages/net/v2ray-geodata`，先删除该源目录与 `package/feeds/*/v2ray-geodata` 链接，避免同名包冲突。NetForgeCN 的三个固件构建仓库都内置了这一步。
 
-`Build/Compile` 会下载两个 `.dat` 并逐一比对 release 提供的 `.sha256sum`，校验不一致直接失败。更换数据源只需改 `Makefile` 里的 `GEOIP_URL` / `GEOSITE_URL`。
+`Build/Compile` 会下载两个 `.dat` 并逐一比对 release 提供的 `.sha256sum`，校验不一致直接失败。下载强制走 HTTPS（含重定向）、失败即退出、带重试与超时/大小上限，并拒绝 HTML 错误页；每个 URL 只下载一次，避免同一构建内取到不同版本。更换数据源只需改 `Makefile` 里的 `GEOIP_URL` / `GEOSITE_URL`，同时确认对应 `.sha256sum` 由该 release 提供。
 
 ## 规则数据
 
